@@ -11,11 +11,16 @@ def main():
     store_variable = []
     sentinel_value = 99
     while True:
-        user_input = int(input("Please input a number between 1 and 100. Input 99 if you want to stop."))
+        user_input = input("Please input a number between 1 and 100. Input 99 if you want to stop.")
+        try:
+            user_input = int(user_input)
+        except ValueError:
+            print('Not correct format or integer(s).')
+            return main()
         if user_input == 99:
-            print('Goodbye.')
-            break
-        if 0 < user_input <= 100:
+           print('Goodbye.')
+           break
+        if 0 < user_input <= 100 or user_input :
             print("Thank you. This number is added to the list.")
             store_variable.append(user_input)
             print(store_variable)
